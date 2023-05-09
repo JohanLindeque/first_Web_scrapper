@@ -5,6 +5,8 @@ const cheerio = require('cheerio')
 const express = require('express')
 
 const app = express()
+const cors = require('cors')
+app.use(cors())
 
 const url = 'https://www.treadmtb.co.za'
 
