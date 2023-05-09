@@ -6,7 +6,7 @@ fetch('http://localhost:8000/results')
 .then(response => response.json())
 .then(data => {
     data.forEach(article => {
-        const articleItem = '<div id="item"><h3>'+ article.title +'</h3><a href=`${article.url}`>' + article.url + '</a></div>'
+        const articleItem = '<div id="item"><h3>'+ article.title +'</h3><p>' + article.url + '</p></div>'
         feedDisplay.insertAdjacentHTML("beforeend", articleItem)
     });
 
