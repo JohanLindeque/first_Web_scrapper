@@ -8,19 +8,11 @@ const app = express()
 
 const url = 'https://www.treadmtb.co.za'
 
-//app.METHOD(PATH, HANDLER)
-app.get() //get data
 
-app.post() //add data
+app.get('/', (req ,res) => res.send('This is my Webscrapper') )
 
-app.put() //edit data
-
-app.delete() //delete data
-
-
-
-
-axios(url)
+app.get('/results',(req,res) =>{
+    axios(url)
     .then(response => {
         const html = response.data
         const $ = cheerio.load(html)
@@ -36,9 +28,15 @@ axios(url)
             })
 
         })
-        console.log(articles)
+        //console.log(articles)
+        res.send(articles)
 
     }).catch(err => console.log(err))
+
+})
+
+
+
 
 
 
